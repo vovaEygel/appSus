@@ -1,0 +1,31 @@
+
+.extended-preview {
+  background-color: #fff;
+  padding: 20px;
+  width: 100%;
+}
+
+.subject {
+  font-size: 1.8rem;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.from {
+  font-weight: bold;
+  margin: 0;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.from-email {
+  color: grey;
+  margin-left: 5px;
+  font-weight: 100;
+}
+
+.body {
+  width: 90%;
+  margin: 0 auto;
+  font-size: 0.8rem;
+}

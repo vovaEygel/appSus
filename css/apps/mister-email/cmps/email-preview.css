@@ -1,0 +1,41 @@
+.email-preview {
+  /* padding: 10px; */
+  border-bottom: 1px solid rgb(214, 214, 214);
+  margin-left: auto;
+  font-weight: bold;
+}
+
+.email-preview:hover {
+  cursor: pointer;
+} 
+
+.email-preview-content {
+  padding: 10px;
+}
+
+.email-preview-content:first-child {
+  padding-left: 10px;
+}
+
+.email-preview-content:last-child {
+  padding-right: 10px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+
+.email-preview a {
+  color: black;
+  text-decoration: none;
+}
+
+.regular {
+  font-weight: 100;
+  /* color: rgb(131, 131, 131); */
+}
+
+.expended {
+  background-color: rgb(243, 243, 243);
+}
