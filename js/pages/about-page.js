@@ -1,7 +1,8 @@
 export default {
     template: `
-        <section class="about-page">
-            <h1>aboot</h1>
-        </section>
+    <section class="about">
+       <h1>aboute</h1>
+       <img src="../img/about.jpg"/>
+     </section>
     `
 }
