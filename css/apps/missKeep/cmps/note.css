@@ -1,0 +1,22 @@
+.notes {}
+
+.notes ul {
+    list-style-type: none;
+}
+
+.notes li {
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.note {
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid black;
+}
+
+.note-img-cmp>img {
+    width: 250px;
+}
