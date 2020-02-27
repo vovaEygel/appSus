@@ -13,3 +13,11 @@
 .flex-column {
   flex-direction: column;
 }
+
+.flex-row {
+  flex-direction: row;
+}
+
+.justify-flex-end {
+  justify-content: flex-end;
+}
