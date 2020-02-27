@@ -11,16 +11,18 @@ import { noteService } from '../services/missKeep-service.js'
 export default {
     template: `
         <section class="notes">
-            <note-search></note-search>
+            <!-- <note-search></note-search> -->
             <add-note></add-note>
-        <ul>
-        <li v-if="notes" v-for="note in notes">
-            <component
-              :is="note.type"
-              :info="note.info">
-             </component>
-            </li>
-        </ul>
+            <div class="notes-container">
+                <ul>
+                    <li v-if="notes" v-for="note in notes">
+                        <component
+                            :is="note.type"
+                            :info="note.info">
+                        </component>
+                    </li>
+                </ul>
+            </div>
         </section>
 `,
     data() {

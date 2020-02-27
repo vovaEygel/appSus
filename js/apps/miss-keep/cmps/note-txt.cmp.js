@@ -1,7 +1,7 @@
 export default {
     template: `
     <section class="note text-note">
-    <a class="fa fa-font" style="font-size:24px"></a>
+    <a class="fa fa-font"></a>
     <p>{{info.txt}}</p>
     </section>
     `,

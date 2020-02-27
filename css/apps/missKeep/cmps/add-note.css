@@ -1,3 +1,18 @@
-.note-add-cmp a {
-    font-size: 20px;
+.note-add-cmp>* {
+    display: inline;
+}
+
+.note-add-cmp {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.note-add-cmp input {
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: black;
+}
+
+.note-add-cmp input:focus {
+    border-color: rgb(233, 2, 2);
 }
