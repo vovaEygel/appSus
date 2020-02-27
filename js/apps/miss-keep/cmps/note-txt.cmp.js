@@ -1,8 +1,8 @@
 export default {
     template: `
-    <section class="note text-note">
-    <a class="fa fa-font" style="font-size:24px"></a>
-    <p>{{info.txt}}</p>
+    <section class="note note-text-cmp">
+        <p>{{info.txt}}</p>
+        <a class="button fa fa-font fa-2x"></a>
     </section>
     `,
     props: ['info'],

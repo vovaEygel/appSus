@@ -31,7 +31,7 @@ function _createEmails() {
 }
 
 function getEmails() {
-  return Promise.resolve(emails);
+    return Promise.resolve(emails);
 }
 
 function getEmail(id) {
@@ -40,22 +40,22 @@ function getEmail(id) {
 }
 
 function _createEmail(from, fromEmail, subject, isRead) {
-  const lorem = `
+    const lorem = `
     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
     Esse nostrum repellat neque quia itaque exercitationem? Iure 
     laboriosam doloribus perspiciatis voluptates numquam necessitatibus 
     officia dolorum veritatis. Aliquam impedit praesentium nisi obcaecati.
   `;
-  return {
-    id: utilsService.makeId(),
-    from,
-    fromEmail,
-    subject,
-    body: lorem,
-    isRead,
-    sentAt: moment().format('h:mm:ss A'),
-    isExpended: false
-  }
+    return {
+        id: utilsService.makeId(),
+        from,
+        fromEmail,
+        subject,
+        body: lorem,
+        isRead,
+        sentAt: moment().format('h:mm:ss A'),
+        isExpended: false
+    }
 }
 
 function deleteEmail(id) {
@@ -81,6 +81,7 @@ function getReadCount() {
 }
 
 export const emailService = {
+<<<<<<< HEAD
   getEmails,
   getEmail,
   deleteEmail,
@@ -88,4 +89,7 @@ export const emailService = {
   decreaseReadCount,
   getReadCount,
   readCount
+=======
+    getEmails
+>>>>>>> 58e5179266a43dda28c1c8e5832403e02feaf3bf
 }

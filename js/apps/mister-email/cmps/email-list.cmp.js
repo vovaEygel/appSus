@@ -2,7 +2,7 @@ import emailPreview from './email-preview.cmp.js'
 import {emailService} from '../services/email-service.js'
 
 export default {
-  template: `
+    template: `
     <section class="email-list">
       <ul class="emails-container">
         <li v-for="email in emails" class="email-preview-container">
@@ -11,12 +11,10 @@ export default {
       </ul>
     </section>
   `,
-  
-  components: {
-    emailPreview,
-  },
 
-  props: ['emails'],
+    components: {
+        emailPreview,
+    },
 
   data() {
     return {
