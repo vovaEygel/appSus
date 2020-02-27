@@ -1,22 +1,30 @@
-import {utilsService} from '../../../services/utils-service.js'
+import {
+  utilsService
+} from '../../../services/utils-service.js'
 
 var emails = [
-  _createEmail('Snoop Dog', 'snoop@gmail.com', 'Yo', 'Wassap', false),
-  _createEmail('Evan You', 'evan.vue@gmail.com', 'Angublahhh', 'My Vue is better', true),
-  _createEmail('Shahar Hason', 'mahaluz@gmail.com','Important Message', 'Shoshi!', false),
+  _createEmail('Snoop Dog', 'snoop@gmail.com', 'Yo', false),
+  _createEmail('Evan You', 'evan.vue@gmail.com', 'Angublahhh', false),
+  _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message', false),
 ]
 
 function getEmails() {
   return Promise.resolve(emails);
 }
 
-function _createEmail(from, fromEmail, subject, body, isRead) {
+function _createEmail(from, fromEmail, subject, isRead) {
+  const lorem = `
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Esse nostrum repellat neque quia itaque exercitationem? Iure 
+    laboriosam doloribus perspiciatis voluptates numquam necessitatibus 
+    officia dolorum veritatis. Aliquam impedit praesentium nisi obcaecati.
+  `;
   return {
     id: utilsService.makeId(),
     from,
     fromEmail,
     subject,
-    body,
+    body: lorem,
     isRead,
     sentAt: moment().format('h:mm:ss A'),
     isExpended: false
@@ -26,4 +34,3 @@ function _createEmail(from, fromEmail, subject, body, isRead) {
 export const emailService = {
   getEmails
 }
-

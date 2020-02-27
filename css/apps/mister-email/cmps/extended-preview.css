@@ -1,14 +1,45 @@
 
 .extended-preview {
   background-color: #fff;
-  padding: 20px;
+  padding: 10px;
   width: 100%;
 }
 
+.extended-preview>* {
+  padding: 5px;
+}
+
+.actions-container {
+  display: inline;
+  margin-left: auto;
+}
+
 .subject {
+  width: 100%;
   font-size: 1.8rem;
   margin: 0;
   margin-bottom: 5px;
+}
+
+.subject span:not(.trash-icon) {
+  margin-left: 5px
+}
+
+.subject span {
+  color: grey;
+  background-color: rgb(219, 219, 219);
+  padding: 10px;
+  border-radius: 25px;
+  font-size: 1rem;
+  transition: .3s;
+}
+
+.subject span:hover {
+  background-color: rgb(197, 197, 197);
+}
+
+.trash-icon {
+  margin-left: auto;
 }
 
 .from {
@@ -26,6 +57,7 @@
 
 .body {
   width: 90%;
-  margin: 0 auto;
   font-size: 0.8rem;
+  letter-spacing: 0.03rem;
+  line-height: 1.1rem;
 }
