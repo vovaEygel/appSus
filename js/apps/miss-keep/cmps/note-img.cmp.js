@@ -1,6 +1,6 @@
 export default {
     template: `
-    <section class="note note-img-cmp">.
+    <section class="note note-img-cmp">
         <img :src="this.info.url" />
         <div class="note-type-selection-btns">
             <a class="fa fa-image note-type"></a>
