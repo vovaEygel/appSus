@@ -3,14 +3,20 @@
 }
 
 .note-add-cmp {
-    margin: 0 auto;
+    margin: 15px;
+    padding: 5px;
     text-align: center;
+    border: 2px solid rgb(196, 196, 196);
+    border-radius: 5px;
 }
 
 .note-add-cmp input {
     outline: 0;
+    width: 100%;
+    margin: 5px 0 10px;
     border-width: 0 0 2px;
-    border-color: black;
+    border-color: rgb(196, 196, 196);
+    text-align: center;
 }
 
 .note-add-cmp input:focus {

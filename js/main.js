@@ -12,7 +12,7 @@ new Vue({
     <section class="my-app">
 			<navbar></navbar>
 			<router-view></router-view>
-		</section>
+	</section>
   `,
     components: {
         navbar

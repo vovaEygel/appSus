@@ -3,14 +3,15 @@ export default {
         <section class="note note-todos-cmp">
         <ul class="todo-list">
             <li v-for="todo in info.todos">
-            <input type="checkbox" id="checkbox"">
-                {{todo.txt}}
-                {{todo.isDone}}
-                {{todo.doneAt}}
+            <p>{{todo.txt}}</p>
+            <!-- <p>{{todo.doneAt}}</p> -->
+                <!-- {{todo.isDone}} -->
+                <!--  -->
             </li>
         </ul>
         <div class="note-type-selection-btns">
-            <a class="fa fa-list note-type"></a>
+            <a class="button fa fa-list note-type fa-2x"></a>
+            <a class="button fa fa-paint-brush note-type fa-2x"></a>
             <!-- <a class="fa fa-font"></a>
             <a class="fa fa-image"></a>
             <a class="fa fa-list"></a>
@@ -24,7 +25,5 @@ export default {
 
         }
     },
-    created() {
-        console.log(this.info)
-    }
+    created() {}
 }
