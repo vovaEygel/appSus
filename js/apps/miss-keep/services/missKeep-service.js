@@ -43,7 +43,7 @@ console.log(notesArray)
 function convertYoutubeUrl(inputLink) {
     console.log(inputLink)
     if (!inputLink) return;
-    let newLink = inputLink.url.split('v=')
+    let newLink = inputLink.split('v=')
     return 'https://www.youtube.com/embed/' + newLink[1];
 
     // if (typeof inputLink === 'string' && inputLink.includes('v=')) {
