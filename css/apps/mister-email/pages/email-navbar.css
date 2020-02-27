@@ -1,0 +1,45 @@
+.email-navbar {
+  font-family: lato, sans-serif;
+  width: 25%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.email-navbar:hover {
+  cursor: pointer;
+}
+
+.compose {
+  align-self: center;
+  background-color: #fff;
+  border-radius: 20px;
+  border: none;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  transition: .3s;
+}
+
+.compose:hover {
+  cursor: pointer;
+  padding: 5px 30px;
+  background-color: rgba(153, 174, 245, 0.808);
+  color: rgb(38, 63, 143);
+  font-weight: bold;
+}
+
+.email-navbar>*:not(:first-child) {
+  width: 100%;
+  align-self: center;
+  margin: 2.5px;
+  padding: 5px 0;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition: .3s;
+}
+
+.email-navbar>*:not(:first-child):hover {
+  background-color: rgba(255, 194, 194, 0.808);
+  color: rgb(206, 65, 65);
+  font-weight: bold;
+}
