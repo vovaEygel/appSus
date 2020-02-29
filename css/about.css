@@ -1,0 +1,7 @@
+.about h1,
+.about img {
+    margin: 10px auto;
+    display: block;
+    border-radius: 100%;
+    text-align: center;
+}

@@ -1,39 +1,95 @@
 .navbar {
-  display: flex;
-  align-items: center;
-  background-color: rgb(196, 196, 196);
-  height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(196, 196, 196);
+    height: 60px;
 }
 
 .navbar-title {
-  margin: 0;
-  margin-left: 10px;
-  font-size: 1.4rem;
-  text-decoration: none;
+    margin: 0;
+    margin-left: 10px;
+    font-size: 1.4rem;
+}
+
+.navbar a {
+    text-decoration: none;
 }
 
 .navbar span {
-  margin-left: 20px;
+    margin-left: 20px;
 }
+
 .nav-img {
-  width: 50px;
+    width: 50px;
 }
 
 .router-link-active {
-  color: rgb(0, 89, 255);
+    color: rgb(0, 89, 255);
 }
 
 .nav-links {
-  margin-left: auto;
-  font-size: 1rem;
+    margin-left: auto;
+    font-size: 1rem;
 }
 
 .nav-links a {
-  margin-right: 20px;
-  color: black;
-  text-decoration: none;
+    margin-right: 20px;
+    color: black;
+    font-size: 1.2rem;
+    text-decoration: none;
 }
 
 .nav-links a:hover {
-  text-decoration: underline;
+    color: red;
+}
+
+.nav-links a:first-child {
+    color: #fff;
+}
+
+.nav-links a:not(:first-child) {}
+
+.side-menu-btn {
+    width: 6rem;
+    display: none;
+    color: #fff;
+    height: 60px;
+    background-color: #a35638;
+    border: #a35638;
+    font-size: 1.6rem;
+}
+
+@media (max-width: 720px) {
+    .side-menu-btn {
+        width: 6rem;
+        display: block;
+        color: black;
+        height: 60px;
+        background-color: rgb(196, 196, 196);
+        font-size: 1.6rem;
+    }
+    .nav-links>a {
+        min-width: 200px;
+        position: fixed;
+        background-color: #979797;
+        top: 0;
+        right: 0;
+        margin-top: 0;
+        flex-direction: column;
+        transform: translate(120%, 0);
+        transition: transform .8s;
+    }
+    .nav-links a {
+        line-height: 60px;
+        height: 60px;
+        width: 100%;
+    }
+    .menu-open .nav-links>a {
+        transform: translate(0, 0);
+    }
+    .menu-open .screen {
+        opacity: 0.5;
+        visibility: visible;
+        transition: opacity .3s;
+    }
 }

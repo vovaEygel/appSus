@@ -6,13 +6,16 @@ export default {
         <input type="text" :placeholder="placeHolder" v-model="info" />
         <div class="note-type-selection-btns">
             <a @click="selectType('noteText')"
-               class="button fa fa-font fa-2x" >
+               class="button fa fa-font fa-2x" 
+               :class="{'clicked': btnClicked && selectedType === 'noteText'}">
             </a>
             <a @click="selectType('noteImg')"
-               class="button fa fa-image fa-2x">
+               class="button fa fa-image fa-2x"
+               :class="{'clicked': btnClicked && selectedType === 'noteImg'}">
             </a>
             <a @click="selectType('noteTodos')" 
-               class="button fa fa-list fa-2x">
+               class="button fa fa-list fa-2x"
+               :class="{'clicked': btnClicked && selectedType === 'noteTodos'}">
             </a>
             <a @click="selectType('noteVideo')" 
                class="button fa fa-caret-square-o-right fa-2x">
@@ -27,11 +30,13 @@ export default {
         return {
             note: null,
             info: null,
+            btnClicked: false,
             selectedType: 'Add note...',
         }
     },
     methods: {
         selectType(type) {
+            this.btnClicked = !this.btnClicked;
             this.selectedType = type;
         },
         addNote() {

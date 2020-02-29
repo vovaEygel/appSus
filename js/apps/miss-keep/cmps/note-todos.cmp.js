@@ -16,9 +16,9 @@ export default {
         <div class="control-btns">
             <a class="fa fa-list note-type fa-2x"></a>
             <!-- <a class="button fa fa-paint-brush note-type fa-2x"></a> -->
-            <a class="button fa fa fa-pencil note-type fa-2x"
+            <!-- <a class="button fa fa fa-pencil note-type fa-2x"
                @click="edit"
-               :class="{'editing' : editing}"></a>
+               :class="{'editing' : editing}"></a> -->
             <a @click="$emit('remove', id)" class="button fa fa fa-trash-o fa-2x"></a>
         </div>        
         </section>
