@@ -27,9 +27,9 @@
 }
 
 .justify-flex-end {
-  justify-content: flex-end;
+    justify-content: flex-end;
 }
 
 .align-left {
-  justify-self: flex-end;
+    justify-self: flex-end;
 }

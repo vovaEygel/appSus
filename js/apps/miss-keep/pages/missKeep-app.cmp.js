@@ -4,7 +4,15 @@ import noteText from '../cmps/note-txt.cmp.js'
 import noteTodos from '../cmps/note-todos.cmp.js'
 import addNote from '../cmps/add-note.cmp.js'
 import noteSearch from '../cmps/note-search.cmp.js'
-import { noteService } from '../services/missKeep-service.js'
+import noteEdit from '../cmps/note-edit.cmp.js'
+import {
+    noteService
+} from '../services/missKeep-service.js'
+import {
+    eventBus,
+    EVENT_SHOW_MSG
+} from '../../../services/event-bus.service.js'
+
 
 //=========================================================================================>
 
@@ -14,14 +22,23 @@ export default {
             <!-- <note-search></note-search> -->
             <add-note></add-note>
             <div class="notes-container">
-                <ul class="flex flex-row flex-wrap ">
+                <ul class="flex flex-row flex-wrap">
                     <li v-if="notes" v-for="(note, id) in notes">
-                        <component
-                            :is="note.type"
-                            :info="note.info"
+                        <section class="note">
+                            <note-edit 
                             :id="note.id"
-                            @remove="removeNote">
-                        </component>
+                            :type="note.type"
+                            :info="note.info"
+                            ></note-edit>
+                            <component
+                                :is="note.type"
+                                :info="note.info"
+                                :id="note.id"
+                                :type="note.type"
+                                @remove="removeNote"
+                                @click="edit">
+                         </component>
+                        </section>
                     </li>
                 </ul>
             </div>
@@ -33,21 +50,35 @@ export default {
         }
     },
     created() {
-        noteService.getNotes().then(notes => this.notes = notes)
+        noteService.getNotes()
+            .then(notes => this.notes = notes)
+        eventBus.$on('saved', (updatedNote) => {
+            console.log(updatedNote);
+            noteService.updateNote(updatedNote).then()
+        })
     },
     methods: {
-        setAns(idx, ans) {
-            this.results.splice(idx, 1, ans)
-        },
         removeNote(noteId) {
-        }
+        noteService.removeNote(noteId)
+        .then(() => {
+            console.log(`note ${noteId} deleted succesfully`);
+            eventBus.$emit(EVENT_SHOW_MSG, {
+                txt: `note ${noteId} deleted succesfully`,
+                type: 'success'
+            })
+        })
     },
-    components: {
-        noteImg,
-        noteVideo,
-        noteText,
-        noteTodos,
-        addNote,
-        noteSearch
-    }
+    edit(noteId) {
+        console.log(noteId)
+    },
+},
+components: {
+    noteImg,
+    noteVideo,
+    noteText,
+    noteTodos,
+    addNote,
+    noteSearch,
+    noteEdit
+}
 }

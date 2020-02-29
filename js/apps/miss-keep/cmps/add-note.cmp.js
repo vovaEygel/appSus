@@ -5,11 +5,21 @@ export default {
      <section class="note-add-cmp">
         <input type="text" :placeholder="placeHolder" v-model="info" />
         <div class="note-type-selection-btns">
-            <a @click="selectType('noteText')" class="button fa fa-font fa-2x" ></a>
-            <a @click="selectType('noteImg')" class="button fa fa-image fa-2x"></a>
-            <a @click="selectType('noteTodo')" class="button fa fa-list fa-2x"></a>
-            <a @click="selectType('noteVideo')" class="button fa fa-caret-square-o-right fa-2x"></a>
-            <a @click="addNote()" class="button fa fa-plus fa-2x"></a>
+            <a @click="selectType('noteText')"
+               class="button fa fa-font fa-2x" >
+            </a>
+            <a @click="selectType('noteImg')"
+               class="button fa fa-image fa-2x">
+            </a>
+            <a @click="selectType('noteTodos')" 
+               class="button fa fa-list fa-2x">
+            </a>
+            <a @click="selectType('noteVideo')" 
+               class="button fa fa-caret-square-o-right fa-2x">
+            </a>
+            <a @click="addNote()"
+               class="button fa fa-plus fa-2x">
+            </a>
         </div>
      </section>
     `,
@@ -17,7 +27,7 @@ export default {
         return {
             note: null,
             info: null,
-            selectedType: null
+            selectedType: 'Add note...',
         }
     },
     methods: {
@@ -25,8 +35,8 @@ export default {
             this.selectedType = type;
         },
         addNote() {
-            console.log(this.info)
-            noteService._addNote({ type: this.selectedType, info: this.info })
+            let newNoteData = { type: this.selectedType, info: this.info }
+            noteService.addNote(newNoteData)
             this.selectedType = null;
             this.note = null;
             this.info = null;
@@ -35,13 +45,18 @@ export default {
     computed: {
         placeHolder() {
             if (this.selectedType === 'noteText')
-                return 'add note...';
+                return 'Add note...';
             if (this.selectedType === 'noteImg')
                 return 'Enter image URL...';
-            if (this.selectedType === 'noteTodo')
+            if (this.selectedType === 'noteTodos')
                 return 'Enter comma separated list...';
             if (this.selectedType === 'noteVideo')
                 return 'Enter video URL...';
+        },
+        buttonHover() {
+            return {
+
+            }
         }
     },
     watch: {
@@ -49,5 +64,5 @@ export default {
             // console.log(this.info)
             // console.log(this.selectedType)
         }
-    }
+    },
 }

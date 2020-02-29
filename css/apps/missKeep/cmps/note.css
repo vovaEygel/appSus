@@ -2,6 +2,17 @@
     margin: 0 auto;
 }
 
+.note {
+    padding: 10px;
+    width: 25rem;
+    margin: 5px;
+    border: 2px solid rgb(196, 196, 196);
+    border-radius: 5px;
+}
+
+
+/* .notes-container ul {} */
+
 .notes ul {
     list-style-type: none;
     padding: 0;
@@ -11,14 +22,15 @@
 }
 
 .note input {
-    display: block;
+    /* display: block; */
+    width: 85%;
+    max-width: 500px;
+    text-align: center;
+    margin: 0 5px 10px;
 }
 
-.note {
-    padding: 10px;
-    margin: 5px;
-    border: 2px solid rgb(196, 196, 196);
-    border-radius: 5px;
+.note:hover {
+    border-color: rgb(255, 0, 0);
 }
 
 .note-img-cmp>img {
