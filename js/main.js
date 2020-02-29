@@ -9,11 +9,11 @@ new Vue({
     el: '#app',
     router,
     template: `
-        <section class="my-app">
-			<navbar></navbar>
-			<router-view></router-view>
-	</section>
-  `,
+			<section class="my-app">
+				<navbar></navbar>
+				<router-view></router-view>
+			</section>
+  	`,
     components: {
         navbar
     }

@@ -4,7 +4,7 @@ import aboutPage from './pages/about-page.js'
 import mrEmail from './apps/mister-email/pages/email-app.js'
 import emailDetails from './apps/mister-email/pages/email-details.js'
 import emailNavbar from './apps/mister-email/pages/email-navbar.cmp.js'
-// import missBooks from './apps/miss-books/pages/'
+import missBooks from './apps/miss-books/pages/'
 
 const routes = [{
 		path: '/',
@@ -34,7 +34,10 @@ const routes = [{
 			component: emailNavbar
 		}]
 	},
-	// { path: '/miss-books', component: missBooks },
+	{
+		path: '/miss-books',
+		component: missBooks
+	},
 ]
 
 export default routes

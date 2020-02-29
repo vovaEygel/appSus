@@ -40,7 +40,6 @@ export default {
             this.results.splice(idx, 1, ans)
         },
         removeNote(noteId) {
-            console.log(noteId)
         }
     },
     components: {

@@ -37,7 +37,6 @@ var notesArray = [{
 
 var notes = _createNotes()
 
-console.log(notesArray)
 
 //move to utils
 function convertYoutubeUrl(inputLink) {
