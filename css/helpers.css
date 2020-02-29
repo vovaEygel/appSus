@@ -7,7 +7,7 @@
 }
 
 .space-around {
-    justify-content: space-daround;
+    justify-content: space-around;
 }
 
 .space-between {
@@ -28,4 +28,8 @@
 
 .justify-flex-end {
     justify-content: flex-end;
+}
+
+.align-left {
+    justify-self: flex-end;
 }
