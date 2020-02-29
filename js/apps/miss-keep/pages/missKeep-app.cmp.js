@@ -5,8 +5,13 @@ import noteTodos from '../cmps/note-todos.cmp.js'
 import addNote from '../cmps/add-note.cmp.js'
 import noteSearch from '../cmps/note-search.cmp.js'
 import noteEdit from '../cmps/note-edit.cmp.js'
-import { noteService } from '../services/missKeep-service.js'
-import { eventBus, EVENT_SHOW_MSG } from '../../../services/event-bus.service.js'
+import {
+    noteService
+} from '../services/missKeep-service.js'
+import {
+    eventBus,
+    EVENT_SHOW_MSG
+} from '../../../services/event-bus.service.js'
 
 
 //=========================================================================================>
@@ -54,26 +59,26 @@ export default {
     },
     methods: {
         removeNote(noteId) {
-            noteService.removeNote(noteId)
-                .then(() => {
-                    console.log(`note ${noteId} deleted succesfully`);
-                    eventBus.$emit(EVENT_SHOW_MSG, {
-                        txt: `note ${noteId} deleted succesfully`,
-                        type: 'success'
-                    })
-                })
-        },
-        edit(noteId) {
-            console.log(noteId)
-        },
+        noteService.removeNote(noteId)
+        .then(() => {
+            console.log(`note ${noteId} deleted succesfully`);
+            eventBus.$emit(EVENT_SHOW_MSG, {
+                txt: `note ${noteId} deleted succesfully`,
+                type: 'success'
+            })
+        })
     },
-    components: {
-        noteImg,
-        noteVideo,
-        noteText,
-        noteTodos,
-        addNote,
-        noteSearch,
-        noteEdit
-    }
+    edit(noteId) {
+        console.log(noteId)
+    },
+},
+components: {
+    noteImg,
+    noteVideo,
+    noteText,
+    noteTodos,
+    addNote,
+    noteSearch,
+    noteEdit
+}
 }

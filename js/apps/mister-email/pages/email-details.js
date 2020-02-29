@@ -38,9 +38,6 @@ export default {
   methods: {
     removeEmail(emailId) {
       emailService.deleteEmail(emailId)
-        .then(emailService.getEmail(emailId)
-          .then(email => this.currEmail = email)
-          .then(emailService.decreaseReadCount(this.currEmail)))
         .then(this.$router.push('/mr-email'))
         }
   }

@@ -1,9 +1,12 @@
-import {emailService} from '../services/email-service.js'
-
 export default {
   template: `
-    <p>readCount</p>
+    <section class="email-status">
+      <p v-if="emailStatus">
+        <span class="fa fa-check"></span>
+        {{emailStatus.readsCount}}/{{emailStatus.emailsCount}} Emails
+      </p>
+    </section>
   `,
   
-  props: ['readCount']
+  props: ['emailStatus']
 }

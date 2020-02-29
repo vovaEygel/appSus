@@ -5,10 +5,6 @@
   margin-top: 20px;
 }
 
-.email-navbar:hover {
-  cursor: pointer;
-}
-
 .compose {
   align-self: center;
   background-color: #fff;
@@ -28,7 +24,7 @@
   font-weight: bold;
 }
 
-.email-navbar>*:not(:first-child) {
+.email-navbar-container>*:not(:first-child):not(:last-child) {
   width: 100%;
   align-self: center;
   margin: 2.5px;
@@ -38,8 +34,9 @@
   transition: .3s;
 }
 
-.email-navbar>*:not(:first-child):hover {
+.email-navbar-container>*:not(:first-child):not(:last-child):hover {
   background-color: rgba(255, 194, 194, 0.808);
   color: rgb(206, 65, 65);
   font-weight: bold;
+  cursor: pointer;
 }

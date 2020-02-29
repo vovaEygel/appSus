@@ -1,29 +1,34 @@
-import { utilsService } from '../../../services/utils-service.js'
+import { utilsService, utilService } from '../../../services/utils-service.js'
 import { storageService } from '../../../services/storage-service.js';
 
 const EMAILS_KEY = 'emails'
+const LOREM = `
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Esse nostrum repellat neque quia itaque exercitationem? Iure 
+        laboriosam doloribus perspiciatis voluptates numquam necessitatibus 
+        officia dolorum veritatis. Aliquam impedit praesentium nisi obcaecati.
+      `;
 
 var emails = _createEmails();
-var readCount = 0;
 
 function _createEmails() {
     var emails = storageService.load(EMAILS_KEY)
     if (!emails || !emails.length) {
         emails = [
-            _createEmail('Snoop Dog', 'snoop@gmail.com', 'Yo', false),
-            _createEmail('Evan You', 'evan.vue@gmail.com', 'Angublahhh', false),
-            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message', false),
-            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message', false),
-            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message', false),
-            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message', false),
-            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message', false),
-            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message', false),
-            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message', false),
-            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message', false),
-            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message', false),
-            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message', false),
-            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message', false),
-            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message', false),
+            _createEmail('Snoop Dog', 'snoop@gmail.com', 'Wazzaaaa'),
+            _createEmail('Evan You', 'evan.vue@gmail.com', 'Angublahhh'),
+            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message'),
+            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message'),
+            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message'),
+            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message'),
+            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message'),
+            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message'),
+            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message'),
+            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message'),
+            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message'),
+            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message'),
+            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message'),
+            _createEmail('Shahar Hason', 'mahaluz@gmail.com', 'Important Message'),
         ]
         storageService.store(EMAILS_KEY, emails);
     }
@@ -39,24 +44,21 @@ function getEmail(id) {
     return Promise.resolve(currEmail);
 }
 
-function _createEmail(from, fromEmail, subject, isRead) {
-    const lorem = `
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-    Esse nostrum repellat neque quia itaque exercitationem? Iure 
-    laboriosam doloribus perspiciatis voluptates numquam necessitatibus 
-    officia dolorum veritatis. Aliquam impedit praesentium nisi obcaecati.
-  `;
+function _createEmail(from, fromEmail, subject, body = LOREM) {
     return {
         id: utilsService.makeId(),
         from,
         fromEmail,
         subject,
-        body: lorem,
-        isRead,
-        sentAt: moment().format('h:mm:ss A'),
+        body,
+        timestamp: Date.now(),
+        sentAt: utilsService.convertTimestamp(Date.now()),
+        isRead: false,
         isExpended: false
     }
 }
+
+console.log(utilsService.convertTimestamp(Date.now()))
 
 function deleteEmail(id) {
     let idx = emails.findIndex(email => email.id === id);
@@ -66,20 +68,53 @@ function deleteEmail(id) {
     return Promise.resolve('Email has been removed')
 }
 
-function increaseReadCount(currEmail) {
-    if (currEmail.isRead) return;
-    readCount++;
-}
-
-function decreaseReadCount() {
-    if (readCount === 0) return;
-    readCount--;
-}
-
 function getReadCount() {
     return readCount;
 }
 
+function receiveEmail(from, fromEmail, subject, body = LOREM) {
+    let receivedEmail = _createEmail(from, fromEmail, subject, body);
+    emails.push(receivedEmail);
+    storageService.store(EMAILS_KEY, emails)
+}
+
+function saveEmails() {
+    storageService.store(EMAILS_KEY, emails)
+}
+
+function emailsFilter(val) {
+    if (val === 'all') return emails
+    else if (val === 'read') return emails.filter(email => email.isRead)
+    else return emails.filter(email => !email.isRead)
+}
+
+function emailsSearch(val) {
+    return emails.filter(email => email.subject.includes(val))
+}
+
+function emailsSort(val) {
+    val === 'subject' ?
+        emails.sort(sortBySubject) :
+        emails.sort((a, b) => a.timestamp - b.timestamp)
+}
+
+function sortBySubject(a, b) {
+    const emailA = a.subject.toUpperCase();
+    const emailB = b.subject.toUpperCase();
+    let comparison = 0;
+    if (emailA > emailB) comparison = 1;
+    else if (emailA < emailB) comparison = -1;
+    return comparison;
+}
+
 export const emailService = {
-    getEmails
+    getEmails,
+    getEmail,
+    deleteEmail,
+    getReadCount,
+    receiveEmail,
+    saveEmails,
+    emailsFilter,
+    emailsSearch,
+    emailsSort
 }
