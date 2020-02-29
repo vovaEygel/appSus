@@ -9,10 +9,14 @@ export default {
   template: `
     <section v-if="emailsToDisplay" class="email-app flex">
       <router-view class="child-navbar" @toggleCompose="toggleCompose" :emailsStatus="emailsStatus"></router-view>
-      <email-filter @setFilter="setFilter"></email-filter>
-      <email-search @searchFilter="searchFilter"></email-search>
-      <email-sort @emailsSort="emailsSort"></email-sort>
-      <email-list :emails="emailsToDisplay"></email-list>
+      <div class="email-filters-list flex flex-column">
+        <div class="filters flex justify-center">
+          <email-filter @setFilter="setFilter"></email-filter>
+          <email-search @searchFilter="searchFilter"></email-search>
+          <email-sort @emailsSort="emailsSort"></email-sort>
+        </div>
+        <email-list :emails="emailsToDisplay"></email-list>
+      </div>
     </section>
     `,
   

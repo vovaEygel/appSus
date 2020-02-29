@@ -58,8 +58,6 @@ function _createEmail(from, fromEmail, subject, body = LOREM) {
     }
 }
 
-console.log(utilsService.convertTimestamp(Date.now()))
-
 function deleteEmail(id) {
     let idx = emails.findIndex(email => email.id === id);
     if (idx === -1) return;
@@ -89,7 +87,10 @@ function emailsFilter(val) {
 }
 
 function emailsSearch(val) {
-    return emails.filter(email => email.subject.includes(val))
+  val = val.toLowerCase();
+  return emails.filter(email => {
+    return email.subject.toLowerCase().includes(val);
+  });
 }
 
 function emailsSort(val) {

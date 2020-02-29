@@ -1,0 +1,7 @@
+.email-sort {
+  padding: 5px 10px;
+}
+
+.email-sort input:hover {
+  cursor: pointer;
+}

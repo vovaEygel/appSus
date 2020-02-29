@@ -22,15 +22,19 @@
 
 .subject span {
   color: grey;
-  background-color: rgb(219, 219, 219);
   padding: 10px;
   border-radius: 25px;
   font-size: 1rem;
+  background-color: rgb(213, 213, 213);
   transition: .3s;
 }
 
 .subject span:hover {
-  background-color: rgb(197, 197, 197);
+  background-color: rgb(193, 193, 193);
+}
+
+.expand-link {
+  font-size: 1rem;
 }
 
 .trash-icon {

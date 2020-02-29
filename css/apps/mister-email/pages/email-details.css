@@ -28,6 +28,11 @@
   color: rgb(0, 0, 0);
 }
 
+.email-body {
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(211, 211, 211);
+}
+
 .from>* {
   margin: 5px;
 }

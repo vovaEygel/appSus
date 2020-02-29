@@ -33,3 +33,7 @@
 .align-left {
     justify-self: flex-end;
 }
+
+.justify-center {
+    justify-content: center;
+}
