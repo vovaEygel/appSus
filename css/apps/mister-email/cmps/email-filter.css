@@ -1,0 +1,9 @@
+.emails-state {
+  padding: 5px 10px;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+
+.emails-state:hover {
+  cursor: pointer;
+}

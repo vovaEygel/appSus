@@ -9,7 +9,6 @@ export default {
         <router-link exact to="/"></router-link>
         <router-link to="/mr-email">Mr Email</router-link>
         <router-link to="/miss-keep">Miss Keep</router-link>
-        <router-link to="/miss-books">Miss Books</router-link>
         <router-link to="/about">About</router-link>
       </div>
     </section>

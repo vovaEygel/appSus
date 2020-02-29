@@ -1,0 +1,21 @@
+.emails-search {
+  width: 300px;
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid #000000;
+  transition: .1s;
+}
+
+.emails-search-btn {
+  padding: 5px 10px;
+  border: none;
+  color: #fff;
+  background-color: #1a73e8;
+  border-radius: 3px;
+  transition: .3s;
+}
+
+.emails-search-btn:hover {
+  cursor: pointer;
+  background-color: #3a8dfa;
+}

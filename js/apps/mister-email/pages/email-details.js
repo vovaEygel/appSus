@@ -9,9 +9,9 @@ export default {
       <section class="email-content">
         <p class="email-subject">
           {{currEmail.subject}}
-          <span class="fa fa-trash e-details-trash" @click="removeEmail(currEmail.id)"></span>
+          <span class="fa fa-trash e-details-trash" @click="removeEmail(currEmail.id)" title="Delete Mail"></span>
           <router-link :to="'/mr-email'">
-            <span class="fa fa-chevron-circle-up"></span>
+            <span class="fa fa-chevron-circle-up" title="Back to List"></span>
           </router-link>
         </p>
         <p class="from">{{currEmail.from}} 
@@ -39,6 +39,6 @@ export default {
     removeEmail(emailId) {
       emailService.deleteEmail(emailId)
         .then(this.$router.push('/mr-email'))
-        }
+    },
   }
 }

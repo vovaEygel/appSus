@@ -17,6 +17,7 @@ export default {
     </section>
   `,
 
+
   data() {
     return {
       newEmail: {
@@ -25,21 +26,14 @@ export default {
         from: 'Mr.Email',
         fromEmail: 'mrEmail@gmailwho.com',
       },
-      elSubject: null,
-      elBody: null,
     }
   },
 
   methods: {
     sendEmail() {
-      // TODO: add msg 'Email has been sent' or 'Cannot send email with empty fields'
-      if (this.$refs.subject.value === '' || this.$refs.body.value === '') {
-        console.log('Cannot send email with empty fields');
-        return
-      }
+      if (this.$refs.subject.value === '' || this.$refs.body.value === '') return
       const { from, fromEmail, subject, body } = this.newEmail
       emailService.receiveEmail(from, fromEmail, subject, body)
-      console.log('Email have been sent');
       this.$refs.subject.value = ''
       this.$refs.body.value = ''
     },

@@ -6,7 +6,7 @@ export default {
       <p class="subject flex">
         {{email.subject}} 
         <span class="fa fa-trash trash-icon" @click="removeEmail(email.id)"></span>
-        <router-link :to="'/email-details/' + email.id + '?'">
+        <router-link class="expand-link":to="'/email-details/' + email.id + '?'">
           <span class="fa fa-expand"></span>
         </router-link>
       </p>
