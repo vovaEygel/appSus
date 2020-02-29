@@ -1,23 +1,33 @@
+import { eventBus, EVENT_SHOW_MSG } from '../../../services/event-bus.service.js'
+
 export default {
     template: `
-    <section class="note note-img-cmp">
-    <input type="text" />
-        <img :src="this.info.url" />
-        <div class="note-type-selection-btns">
+    <section class="note-img-cmp">
+        <img v-if="info" :src="info.url" />
+        <div class="control-btns">
             <a class=" fa fa-image note-type fa-2x"></a>
+            <!-- <a class="button fa fa-paint-brush note-type fa-2x"></a> -->
+            <a class="button fa fa fa-pencil note-type fa-2x"
+               @click="edit"
+               :class="{'editing' : editing}"></a>
             <a @click="$emit('remove', id)" class="button fa fa fa-trash-o fa-2x"></a>
-            <!-- <a class="fa fa-font"></a>
-            <a class="fa fa-image"></a>
-            <a class="fa fa-list"></a>
-            <a class="fa fa-caret-square-o-right"></a> -->
         </div>        
     </section>
     `,
-    props: ['info', 'id'],
+    props: ['info', 'id', 'type'],
     data() {
         return {
-            txt: ''
+            editing: false,
         }
     },
-    created() {}
+    methods: {
+        edit() {
+            eventBus.$emit('edit', { type: this.type, id: this.id, info: this.info })
+            this.editing = !this.editing
+                // console.log(this.info, this.id);
+        },
+        saveNote() {
+            noteService.updateNote(this.id)
+        },
+    },
 }

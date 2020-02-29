@@ -4,3 +4,11 @@
     border-radius: 5px;
     background-color: rgb(196, 196, 196);
 }
+
+.button:hover {
+    background-color: burlywood;
+}
+
+.editing {
+    background-color: coral;
+}

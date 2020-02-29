@@ -1,3 +1,7 @@
 .todo-list li {
     list-style-type: disc;
 }
+
+.list-line {
+    text-decoration: line-through;
+}
