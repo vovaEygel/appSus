@@ -7,7 +7,6 @@ var notesArray = [{
         id: 'agr293ha',
         type: "noteText",
         isPinned: true,
-        // title: "hello",
         info: {
             txt: "Fullstack Me Baby!"
         },
@@ -18,7 +17,6 @@ var notesArray = [{
     {
         id: 'fvj9834f',
         type: "noteVideo",
-        // title: "james bond",
         isPinned: true,
         info: {
             url: 'https://www.youtube.com/watch?v=O7M7BoJGRNc',
@@ -31,7 +29,6 @@ var notesArray = [{
         id: 'JsF422dv',
         type: 'noteImg',
         isPinned: true,
-        // title: "hello",
         info: {
             url: "https://live.staticflickr.com/3239/3039406617_2360a8cbed_b.jpg",
         },
@@ -43,7 +40,6 @@ var notesArray = [{
         id: 'JscaF422dv',
         type: 'noteImg',
         isPinned: true,
-        // title: "hello",
         info: {
             url: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/cartoonvideo14.jpeg",
         },
@@ -55,7 +51,6 @@ var notesArray = [{
         id: 'ewgw892d',
         type: "noteImg",
         isPinned: true,
-        // title: "hello",
         info: {
             url: "https://images.theconversation.com/files/301743/original/file-20191114-26207-lray93.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip",
         },
@@ -66,7 +61,6 @@ var notesArray = [{
     {
         id: 'FJ9P8P3T',
         type: "noteTodos",
-        // title: "hello",
         isPinned: true,
         info: {
             todos: [
@@ -81,7 +75,6 @@ var notesArray = [{
     {
         id: 'mf20asff',
         type: "noteVideo",
-        // title: "james bond",
         isPinned: true,
         info: {
             url: 'https://www.youtube.com/watch?v=vmIUvp0e1bw&t=130s',
@@ -93,7 +86,6 @@ var notesArray = [{
     {
         id: 'megf3240',
         type: "noteVideo",
-        // title: "james bond",
         isPinned: true,
         info: {
             url: 'https://www.youtube.com/watch?v=UgBUkn2S2So',
@@ -105,7 +97,6 @@ var notesArray = [{
     {
         id: 'segf3240',
         type: "noteVideo",
-        // title: "james bond",
         isPinned: true,
         info: {
             url: 'https://www.youtube.com/watch?v=e4393i2-OWk',
@@ -117,7 +108,6 @@ var notesArray = [{
     {
         id: 'segf3240',
         type: "noteVideo",
-        // title: "james bond",
         isPinned: true,
         info: {
             url: 'https://www.youtube.com/watch?v=A9sOb_r6Hy0',

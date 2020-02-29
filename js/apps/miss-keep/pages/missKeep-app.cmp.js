@@ -59,26 +59,26 @@ export default {
     },
     methods: {
         removeNote(noteId) {
-        noteService.removeNote(noteId)
-        .then(() => {
-            console.log(`note ${noteId} deleted succesfully`);
-            eventBus.$emit(EVENT_SHOW_MSG, {
-                txt: `note ${noteId} deleted succesfully`,
-                type: 'success'
-            })
-        })
+            noteService.removeNote(noteId)
+                .then(() => {
+                    console.log(`note ${noteId} deleted succesfully`);
+                    eventBus.$emit(EVENT_SHOW_MSG, {
+                        txt: `note ${noteId} deleted succesfully`,
+                        type: 'success'
+                    })
+                })
+        },
+        edit(noteId) {
+            console.log(noteId)
+        },
     },
-    edit(noteId) {
-        console.log(noteId)
-    },
-},
-components: {
-    noteImg,
-    noteVideo,
-    noteText,
-    noteTodos,
-    addNote,
-    noteSearch,
-    noteEdit
-}
+    components: {
+        noteImg,
+        noteVideo,
+        noteText,
+        noteTodos,
+        addNote,
+        noteSearch,
+        noteEdit
+    }
 }
