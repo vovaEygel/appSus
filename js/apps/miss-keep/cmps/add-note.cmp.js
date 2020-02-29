@@ -18,7 +18,8 @@ export default {
                :class="{'clicked': btnClicked && selectedType === 'noteTodos'}">
             </a>
             <a @click="selectType('noteVideo')" 
-               class="button fa fa-caret-square-o-right fa-2x">
+               class="button fa fa-caret-square-o-right fa-2x"
+               :class="{'clicked': btnClicked && selectedType === 'noteVideo'}">
             </a>
             <a @click="addNote()"
                class="button fa fa-plus fa-2x">
