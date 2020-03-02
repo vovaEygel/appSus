@@ -6,6 +6,7 @@ export default {
     template: `
     <section class="email-list">
       <ul class="emails-container">
+        <h2 v-if="emails.length===0">No Emails to Show</h2>
         <li v-for="email in emails" class="email-preview-container">
           <email-preview :email="email" @click.native="extendPreview(email.id)"></email-preview>
         </li>   
@@ -52,14 +53,13 @@ export default {
     extendPreview(emailId) {
       let { clickedEmail, emailsToDisplay } = this
       clickedEmail = emailsToDisplay.find(email => email.id === emailId)
-      if (clickedEmail) {
-        clickedEmail.isExpended = !clickedEmail.isExpended
-        clickedEmail.isRead = true
-        emailService.saveEmails()
-        this.emailsStatus.emailsCount = this.countEmails
-        this.emailsStatus.readsCount = this.countReads
-        eventBus.$emit('updateEmailStatus', this.emailsStatus)
-      }
+      if (!clickedEmail) return
+      clickedEmail.isExpended = !clickedEmail.isExpended
+      clickedEmail.isRead = true
+      emailService.saveEmails()
+      this.emailsStatus.emailsCount = this.countEmails
+      this.emailsStatus.readsCount = this.countReads
+      eventBus.$emit('updateEmailStatus', this.emailsStatus)
     }
   },
 

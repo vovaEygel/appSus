@@ -5,4 +5,9 @@
 
 .filters {
   margin-top: 10px;
+  font-size: 1rem;
+}
+
+.email-app {
+  overflow: hidden;
 }

@@ -1,5 +1,9 @@
-import { utilsService, utilService } from '../../../services/utils-service.js'
-import { storageService } from '../../../services/storage-service.js';
+import {
+    utilsService,
+} from '../../../services/utils-service.js'
+import {
+    storageService
+} from '../../../services/storage-service.js';
 
 const EMAILS_KEY = 'emails'
 const LOREM = `
@@ -44,7 +48,7 @@ function getEmail(id) {
     return Promise.resolve(currEmail);
 }
 
-function _createEmail(from, fromEmail, subject, body = LOREM) {
+function _createEmail(from, fromEmail, subject, body = LOREM, isComposed = false) {
     return {
         id: utilsService.makeId(),
         from,
@@ -52,9 +56,12 @@ function _createEmail(from, fromEmail, subject, body = LOREM) {
         subject,
         body,
         timestamp: Date.now(),
-        sentAt: utilsService.convertTimestamp(Date.now()),
+        sentAt: moment().calendar(),
         isRead: false,
-        isExpended: false
+        isExpended: false,
+        isStarred: false,
+        isComposed,
+        replys: []
     }
 }
 
@@ -70,14 +77,44 @@ function getReadCount() {
     return readCount;
 }
 
-function receiveEmail(from, fromEmail, subject, body = LOREM) {
-    let receivedEmail = _createEmail(from, fromEmail, subject, body);
-    emails.push(receivedEmail);
+function receiveEmail(from, fromEmail, subject, body, isComposed) {
+    let receivedEmail = _createEmail(from, fromEmail, subject, body, isComposed);
+    emails.unshift(receivedEmail);
+    storageService.store(EMAILS_KEY, emails);
+}
+
+function addReply(id, from, fromEmail, subject, body) {
+    let currReply = {
+        id: utilsService.makeId(),
+        from,
+        fromEmail,
+        subject,
+        body,
+        timestamp: Date.now(),
+        sentAt: Date.now(),
+    }
+    let currEmail = emails.find(email => email.id === id);
+    currEmail.replys.unshift(currReply);
     storageService.store(EMAILS_KEY, emails)
 }
 
 function saveEmails() {
-    storageService.store(EMAILS_KEY, emails)
+    storageService.store(EMAILS_KEY, emails);
+}
+
+function toggleEmailStar(id) {
+    let currEmail = emails.find(email => email.id === id);
+    currEmail.isStarred = !currEmail.isStarred;
+    saveEmails();
+    return currEmail
+}
+
+function starredEmails() {
+    return emails.filter(email => email.isStarred)
+}
+
+function sentMail() {
+    return emails.filter(email => email.isComposed)
 }
 
 function emailsFilter(val) {
@@ -87,16 +124,16 @@ function emailsFilter(val) {
 }
 
 function emailsSearch(val) {
-  val = val.toLowerCase();
-  return emails.filter(email => {
-    return email.subject.toLowerCase().includes(val);
-  });
+    val = val.toLowerCase();
+    return emails.filter(email => {
+        return email.subject.toLowerCase().includes(val);
+    });
 }
 
 function emailsSort(val) {
     val === 'subject' ?
         emails.sort(sortBySubject) :
-        emails.sort((a, b) => a.timestamp - b.timestamp)
+        emails.sort((a, b) => a.sentAt - b.sentAt)
 }
 
 function sortBySubject(a, b) {
@@ -115,7 +152,11 @@ export const emailService = {
     getReadCount,
     receiveEmail,
     saveEmails,
+    toggleEmailStar,
+    starredEmails,
     emailsFilter,
     emailsSearch,
-    emailsSort
+    emailsSort,
+    addReply,
+    sentMail
 }

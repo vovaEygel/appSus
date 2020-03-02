@@ -1,0 +1,13 @@
+@media only screen and (max-width: 860px) {
+  .emails-search {
+    width: 150px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .filters {
+    background-color: #c4c4c4;
+    margin-top: 0;
+    width: 100%;
+  }
+}

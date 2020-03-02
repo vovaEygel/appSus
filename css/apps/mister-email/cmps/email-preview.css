@@ -24,6 +24,10 @@
   font-weight: bold;
 }
 
+.email-preview .star {
+  margin-right: 10px;
+  color: rgb(204, 167, 4);
+}
 
 .email-preview a {
   color: black;

@@ -3,7 +3,7 @@ import missKeep from './apps/miss-keep/pages/missKeep-app.cmp.js'
 import aboutPage from './pages/about-page.js'
 import mrEmail from './apps/mister-email/pages/email-app.js'
 import emailDetails from './apps/mister-email/pages/email-details.js'
-import emailNavbar from './apps/mister-email/pages/email-navbar.cmp.js'
+import emailNavbar from './apps/mister-email/pages/email-navbar.js'
 
 
 const routes = [{

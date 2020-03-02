@@ -1,14 +1,10 @@
-.email-details {
+.email-content {
+  width: 50%;
   margin: 0 auto;
-  width: 80%;
 }
 
 .email-details>* {
   padding: 10px;
-}
-
-.email-details-navbar {
-  width: 500px;
 }
 
 .email-subject {
@@ -35,4 +31,8 @@
 
 .from>* {
   margin: 5px;
+}
+
+.replys {
+  padding: 0;
 }

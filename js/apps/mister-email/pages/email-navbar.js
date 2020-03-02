@@ -1,6 +1,7 @@
 import emailCompose from '../cmps/email-compose.cmp.js'
 import emailStatus from '../cmps/email-status.cmp.js'
 import {eventBus} from '../../../services/event-bus.service.js'
+import { emailService } from '../services/email-service.js'
 
 export default {
   template: `
@@ -10,12 +11,18 @@ export default {
         <span class="fa fa-plus"></span>
         Compose
       </button>
-      <router-link class="index-link" :to="'/mr-email'">
-        <p class="index">
+        <p class="index" @click="onIndexClick()">
           <span class="fa fa-inbox"></span>
           Index
         </p>
-      </router-link>
+        <p class="starred" @click="starredEmails()">
+          <span class="fa fa-star"></span>
+          Starred
+        </p>
+        <p class="starred" @click="sentMail()">
+          <span class="fa fa-send"></span>
+          Sent Mail
+        </p>
       <p class="check">
         <email-status v-if="emailStatus" :emailStatus="emailStatus"></email-status>
       </p>
@@ -43,14 +50,20 @@ export default {
     eventBus.$on('updateEmailStatus', (status) => {
       this.emailStatus = status
     })
-    eventBus.$on('closeCompose', () => {
-      this.toggleCompose()
-  })
   },
 
   methods: {
     toggleCompose() {
       this.isCompose = !this.isCompose
+    },
+    starredEmails() {
+      eventBus.$emit('starredEmails')
+    },
+    sentMail() {
+      eventBus.$emit('sentMail')
+    },
+    onIndexClick() {
+      eventBus.$emit('onIndexClick')
     }
   }
 }

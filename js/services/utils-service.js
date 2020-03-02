@@ -1,10 +1,3 @@
-export const utilsService = {
-    getRandomInt,
-    makeLorem,
-    makeId,
-    convertTimestamp
-}
-
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -60,18 +53,35 @@ function _createWord(length) {
     return word;
 }
 
-function convertTimestamp(timestamp) { 
-    let date = new Date(timestamp * 1000); 
-    let hours = date.getUTCHours(); 
-    let minutes = date.getUTCMinutes(); 
+function convertTimestamp(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let hours = date.getUTCHours();
+    let minutes = date.getUTCMinutes();
     let seconds = date.getSeconds();
     let AMPM;
     if (hours > 12) AMPM = 'PM'
-    if (hours <=12) AMPM = 'AM'
+    if (hours <= 12) AMPM = 'AM'
 
-    let timeString = hours.toString().padStart(2, '0') 
-        + ':' + minutes.toString().padStart(2, '0') 
-        + ':' + seconds.toString().padStart(2, '0')
-        + ' ' + AMPM
+    let timeString = hours.toString().padStart(2, '0') +
+        ':' + minutes.toString().padStart(2, '0') +
+        ':' + seconds.toString().padStart(2, '0') +
+        ' ' + AMPM
     return timeString
+}
+
+function sortByTxt(a, b) {
+    const txtA = a.txt.toUpperCase();
+    const txtB = b.txt.toUpperCase();
+    let comparison = 0;
+    if (txtA > txtB) comparison = 1;
+    else if (txtA < txtB) comparison = -1;
+    return comparison;
+}
+
+export const utilsService = {
+    getRandomInt,
+    makeLorem,
+    makeId,
+    convertTimestamp,
+    sortByTxt
 }

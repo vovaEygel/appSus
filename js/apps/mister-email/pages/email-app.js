@@ -3,6 +3,7 @@ import emailList from '../cmps/email-list.cmp.js'
 import emailFilter from '../cmps/email-filter.cmp.js'
 import emailSearch from '../cmps/email-search.cmp.js'
 import emailSort from '../cmps/email-sort.cmp.js'
+import { eventBus } from '../../../services/event-bus.service.js'
 
 
 export default {
@@ -47,6 +48,16 @@ export default {
         this.emailsStatus.emailsCount = this.countEmails
         this.emailsStatus.readsCount = this.countReads
       })
+    eventBus.$on('starredEmails', () => {
+      this.emailsToDisplay = emailService.starredEmails()
+    }),
+    eventBus.$on('sentMail', () => {
+      this.emailsToDisplay = emailService.sentMail()
+    }),
+    eventBus.$on('onIndexClick', () => {
+      emailService.getEmails()
+        .then(emails => this.emailsToDisplay = emails)
+    })
   },
 
   methods: {
