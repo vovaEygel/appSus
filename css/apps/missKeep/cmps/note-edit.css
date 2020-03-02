@@ -2,3 +2,15 @@
 .note-edit-section a {
     display: inline-block;
 }
+
+.edit-section {
+    margin-top: 5px;
+}
+
+.edit-section input {
+    width: 80%
+}
+
+.edit-section .button {
+    /* width: 10px */
+}

@@ -2,7 +2,7 @@ import {emailService} from '../services/email-service.js'
 import { eventBus } from '../../../services/event-bus.service.js'
 
 export default {
-  template: `
+    template: `
     <section class="email-compose">
       <div class="close-compose-container flex space-between">
         <span class="close-compose-title">{{titleTxt}}</span>
@@ -18,28 +18,29 @@ export default {
     </section>
   `,
 
-  props: ['emailId', 'isReply'],
+    props: ['emailId', 'isReply'],
 
-  data() {
-    return {
-      newMessage: {
-        subject: null,
-        body: null,
-        from: 'Mr.Email',
-        fromEmail: 'mrEmail@gmailwho.com',
-      },
-      isComposed: true
-    }
-  },
-
-  computed: {
-    titleTxt() {
-      return this.isReply ? 'New Reply' : 'New Message'
+    data() {
+        return {
+            newMessage: {
+                subject: null,
+                body: null,
+                from: 'Mr.Email',
+                fromEmail: 'mrEmail@gmailwho.com',
+            },
+            isComposed: true,
+            noteData: null
+        }
     },
-    buttonTxt() {
-      return this.isReply ? 'Reply' : 'Send'
-    }
-  },
+
+    computed: {
+        titleTxt() {
+            return this.isReply ? 'New Reply' : 'New Message'
+        },
+        buttonTxt() {
+            return this.isReply ? 'Reply' : 'Send'
+        }
+    },
 
   methods: {
     sendOrReply() {
@@ -53,8 +54,10 @@ export default {
       this.$refs.subject.value = ''
       this.$refs.body.value = ''
     },
-    emitCloseCompose() {
-      this.$emit('closeCompose', false)
+    created() {
+        eventBus.$on('noteToMail', (noteData) => {
+            this.toggleEditing(noteForEdit)
+        })
     }
-  },
+  }
 }
