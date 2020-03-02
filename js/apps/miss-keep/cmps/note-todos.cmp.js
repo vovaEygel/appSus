@@ -2,7 +2,10 @@ import { eventBus, EVENT_SHOW_MSG } from '../../../services/event-bus.service.js
 
 export default {
     template: `
-        <section class="note-todos-cmp">
+        <section 
+        class="note-todos-cmp" 
+        @mouseover.once="showBtns" 
+        @mouseleave.once="hideBtns">
         <div class="note-content-container">
         <ul class="todo-list">
             <li 
@@ -13,7 +16,7 @@ export default {
             </li>
         </ul>
         </div>        
-        <div class="control-btns">
+        <div v-if="showButtons" class="control-btns">
             <a class="fa fa-list note-type fa-2x"></a>
             <!-- <a class="button fa fa-paint-brush note-type fa-2x"></a> -->
             <!-- <a class="button fa fa fa-pencil note-type fa-2x"
@@ -27,7 +30,8 @@ export default {
     data() {
         return {
             editing: false,
-            todos: null
+            todos: null,
+            showButtons: false
         }
     },
     computed: {
@@ -50,7 +54,13 @@ export default {
         saveNote() {
             noteService.updateNote(this.id)
         },
-        todosList() {}
+        showBtns() {
+            this.showButtons = !this.showButtons;
+        },
+        hideBtns() {
+            this.showButtons = !this.showButtons;
+        },
+
     },
     created() {
         this.todos = this.info.todos;

@@ -1,6 +1,6 @@
 .email-filters-list {
-  width: 73%;
-  margin: 0 auto;
+    width: 73%;
+    margin: 0 auto;
 }
 
 .filters {
@@ -10,4 +10,7 @@
 
 .email-app {
   overflow: hidden;
+  margin-top: 10px;
+  background: url(../../../../img/mail-bg3.jpg) no-repeat center center fixed;
+  background-size: cover;
 }

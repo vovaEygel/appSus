@@ -2,12 +2,21 @@
     margin: 0 auto;
 }
 
+.notes {
+    background: url(../../../../img/bg6.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
 .note {
     padding: 10px;
-    width: 25rem;
-    margin: 5px;
+    /* width: 20rem; */
+    margin: 10px;
     border: 2px solid rgb(196, 196, 196);
     border-radius: 5px;
+    background-color: aliceblue;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
 }
 
 
@@ -16,9 +25,11 @@
 .notes ul {
     list-style-type: none;
     padding: 0;
-    margin: 0 auto;
+    margin: 0.8rem auto;
     width: 90%;
-    justify-content: center;
+    /* justify-content: center; */
+    column-count: 5;
+    column-width: 300px;
 }
 
 .note input {
@@ -30,7 +41,7 @@
 }
 
 .note:hover {
-    border-color: rgb(255, 0, 0);
+    border-color: #05668D;
 }
 
 .note-img-cmp>img {
