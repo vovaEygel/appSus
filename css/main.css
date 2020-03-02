@@ -3,7 +3,6 @@
 @import './helpers.css';
 @import './about.css';
 @import 'icons/icons.css';
-
 @import './apps/mister-email/cmps/email-list.css';
 @import './apps/mister-email/cmps/email-preview.css';
 @import './apps/mister-email/cmps/extended-preview.css';
@@ -16,7 +15,6 @@
 @import './apps/mister-email/cmps/email-sort.css';
 @import './apps/mister-email/pages/email-app.css';
 @import './apps/mister-email/pages/email-navbar.css';
-
 @import 'apps/missKeep/cmps/note.css';
 @import 'apps/missKeep/cmps/note-search.css';
 @import 'apps/missKeep/cmps/add-note.css';
@@ -33,15 +31,16 @@
     font-family: lato, sans-serif;
 }
 
-
-/* html {
-    background: url(http://upload.wikimedia.org/wikipedia/commons/d/dd/Muybridge_race_horse_animated.gif) no-repeat center center fixed;
+html {
+    /* background: url(http://upload.wikimedia.org/wikipedia/commons/d/dd/Muybridge_race_horse_animated.gif) no-repeat center center fixed; */
+    background: url(../img/bg1.jpg) no-repeat center center fixed;
     background-size: cover;
-} */
+}
 
 body {
     margin: 0;
     padding: 0;
+    background-color: rgb(232, 232, 232);
 }
 
 ul {

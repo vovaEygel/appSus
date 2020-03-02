@@ -3,7 +3,6 @@ import noteVideo from '../cmps/note-video.cmp.js'
 import noteText from '../cmps/note-txt.cmp.js'
 import noteTodos from '../cmps/note-todos.cmp.js'
 import addNote from '../cmps/add-note.cmp.js'
-import noteSearch from '../cmps/note-search.cmp.js'
 import noteEdit from '../cmps/note-edit.cmp.js'
 import {
     noteService
@@ -13,37 +12,37 @@ import {
     EVENT_SHOW_MSG
 } from '../../../services/event-bus.service.js'
 
-
 //=========================================================================================>
 
 export default {
     template: `
         <section class="notes">
-            <!-- <note-search></note-search> -->
-            <add-note></add-note>
             <div class="notes-container">
-                <ul class="flex flex-row flex-wrap">
+                <add-note></add-note>
+                <!-- <ul class="flex flex-row flex-wrap"> -->
+                <ul>
                     <li v-if="notes" v-for="(note, id) in notes">
-                        <section class="note">
-                            <note-edit 
-                            :id="note.id"
-                            :type="note.type"
-                            :info="note.info"
-                            ></note-edit>
+                        <section class="note" :style="note.style">
+                        <!-- <section class="note" :class="[bg]"> -->
                             <component
                                 :is="note.type"
                                 :info="note.info"
                                 :id="note.id"
                                 :type="note.type"
+                                
                                 @remove="removeNote"
                                 @click="edit">
                          </component>
+                         <note-edit 
+                            :id="note.id"
+                            :type="note.type"
+                            :info="note.info"
+                            ></note-edit>
                         </section>
                     </li>
                 </ul>
             </div>
-        </section>
-`,
+        </section>`,
     data() {
         return {
             notes: null,
@@ -51,7 +50,11 @@ export default {
     },
     created() {
         noteService.getNotes()
-            .then(notes => this.notes = notes)
+            .then(notes => {
+                this.notes = notes
+                console.log(this.notes)
+            });
+
         eventBus.$on('saved', (updatedNote) => {
             console.log(updatedNote);
             noteService.updateNote(updatedNote).then()
@@ -78,7 +81,6 @@ export default {
         noteText,
         noteTodos,
         addNote,
-        noteSearch,
         noteEdit
     }
 }

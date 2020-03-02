@@ -16,3 +16,7 @@
 .clicked {
     background-color: coral;
 }
+
+.control-buttons {
+    margin: 0.8em;
+}

@@ -1,8 +1,13 @@
 .email-filters-list {
-  width: 73%;
-  margin: 0 auto;
+    width: 73%;
+    margin: 0 auto;
 }
 
 .filters {
-  margin-top: 10px;
+    margin-top: 10px;
+}
+
+.email-app {
+    background: url(../../../../img/mail-bg3.jpg) no-repeat center center fixed;
+    background-size: cover;
 }

@@ -3,7 +3,7 @@ import { noteService } from '../services/missKeep-service.js'
 export default {
     template: `
      <section class="note-add-cmp">
-        <input type="text" :placeholder="placeHolder" v-model="info" />
+        <input type="text" :placeholder="placeHolder" v-model="inputText" @click="clearInput"/>
         <div class="note-type-selection-btns">
             <a @click="selectType('noteText')"
                class="button fa fa-font fa-2x" 
@@ -19,7 +19,7 @@ export default {
             </a>
             <a @click="selectType('noteVideo')" 
                class="button fa fa-caret-square-o-right fa-2x"
-               :class="{'clicked': btnClicked && selectedType === 'noteVideo'}">
+               :class="{'clicked': selectedType === 'noteVideo'}">
             </a>
             <a @click="addNote()"
                class="button fa fa-plus fa-2x">
@@ -32,43 +32,46 @@ export default {
             note: null,
             info: null,
             btnClicked: false,
-            selectedType: 'Add note...',
+            selectedType: null,
+            inputText: null
         }
     },
     methods: {
         selectType(type) {
             this.btnClicked = !this.btnClicked;
             this.selectedType = type;
+
         },
+        unSelect() {
+            if (this.btnClicked) {
+                this.btnClicked = !this.btnClicked;
+                this.inputText = null
+            }
+        },
+
         addNote() {
             let newNoteData = { type: this.selectedType, info: this.info }
             noteService.addNote(newNoteData)
             this.selectedType = null;
             this.note = null;
             this.info = null;
+        },
+        clearInput() {
+            this.placeHolder;
         }
     },
     computed: {
         placeHolder() {
+            if (this.selectedType === null)
+                return 'What on your mind?'
             if (this.selectedType === 'noteText')
-                return 'Add note...';
+                return 'Add a note...';
             if (this.selectedType === 'noteImg')
-                return 'Enter image URL...';
+                return 'Enter an image URL...';
             if (this.selectedType === 'noteTodos')
                 return 'Enter comma separated list...';
             if (this.selectedType === 'noteVideo')
-                return 'Enter video URL...';
+                return 'Enter a video URL...';
         },
-        buttonHover() {
-            return {
-
-            }
-        }
-    },
-    watch: {
-        info() {
-            // console.log(this.info)
-            // console.log(this.selectedType)
-        }
     },
 }
