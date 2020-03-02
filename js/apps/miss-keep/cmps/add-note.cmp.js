@@ -1,4 +1,5 @@
 import { noteService } from '../services/missKeep-service.js'
+import { eventBus } from '../../../services/event-bus.service.js';
 
 export default {
     template: `
@@ -58,6 +59,9 @@ export default {
         },
         clearInput() {
             this.placeHolder;
+        },
+        emailToNote() {
+            console.log('misskeep')
         }
     },
     computed: {

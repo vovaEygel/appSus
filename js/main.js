@@ -11,7 +11,7 @@ new Vue({
     template: `
 			<section class="my-app">
 				<navbar></navbar>
-				<router-view></router-view>
+				<router-view class="main-router-view"></router-view>
 			</section>
   	`,
     components: {

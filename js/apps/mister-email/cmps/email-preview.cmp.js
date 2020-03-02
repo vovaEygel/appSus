@@ -1,5 +1,4 @@
 import expendedPreview from './expended-preview.cmp.js'
-import emailListCmp from './email-list.cmp.js'
 import { emailService } from '../services/email-service.js'
 
 export default {
@@ -34,10 +33,6 @@ export default {
   },
 
   computed: {
-    sentAtDate() {
-      // moment(this.email.timestamp).format("MMM Do YY");
-      // moment(this.email.timestamp).startOf('day').fromNow();
-    },
     isEmailStarred() {
       if (this.email.isStarred) return 'star fa fa-star'
       if (!this.email.isStarred) return 'star fa fa-star-o'

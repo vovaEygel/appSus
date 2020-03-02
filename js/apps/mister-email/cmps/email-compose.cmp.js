@@ -1,4 +1,5 @@
 import {emailService} from '../services/email-service.js'
+import { eventBus } from '../../../services/event-bus.service.js'
 
 export default {
   template: `
@@ -46,6 +47,7 @@ export default {
       const { from, fromEmail, subject, body } = this.newMessage
       if (this.isReply) emailService.addReply(this.emailId, from, fromEmail, subject, body)
       else {
+        eventBus.$emit('emailToNote', this.newMessage)
         emailService.receiveEmail(from, fromEmail, subject, body, this.isComposed)
       }
       this.$refs.subject.value = ''

@@ -37,8 +37,8 @@
 
 html {
     /* background: url(http://upload.wikimedia.org/wikipedia/commons/d/dd/Muybridge_race_horse_animated.gif) no-repeat center center fixed; */
-    background: url(../img/bg1.jpg) no-repeat center center fixed;
-    background-size: cover;
+    /* background: url(../img/bg1.jpg) no-repeat center center fixed;
+    background-size: cover; */
 }
 
 body {
@@ -49,4 +49,15 @@ body {
 
 ul {
     list-style-type: none;
+}
+
+.my-app {
+    background: url(../img/bg1.jpg) no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+.main-router-view {
+    margin: 0;
 }
