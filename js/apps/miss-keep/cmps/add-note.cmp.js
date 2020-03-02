@@ -3,7 +3,7 @@ import { noteService } from '../services/missKeep-service.js'
 export default {
     template: `
      <section class="note-add-cmp">
-        <input type="text" :placeholder="placeHolder" v-model="inputText" @click="clearInput"/>
+        <input type="text" :placeholder="placeHolder" v-model="inputText"/>
         <div class="note-type-selection-btns">
             <a @click="selectType('noteText')"
                class="button fa fa-font fa-2x" 
@@ -33,7 +33,9 @@ export default {
             info: null,
             btnClicked: false,
             selectedType: null,
-            inputText: null
+            inputText: null,
+            dataFromMail: null
+
         }
     },
     methods: {
@@ -50,8 +52,10 @@ export default {
         },
 
         addNote() {
-            let newNoteData = { type: this.selectedType, info: this.info }
+            console.log(this.info)
+            let newNoteData = { type: this.selectedType, info: this.inputText }
             noteService.addNote(newNoteData)
+            this.inputText = ''
             this.selectedType = null;
             this.note = null;
             this.info = null;
@@ -69,7 +73,7 @@ export default {
             if (this.selectedType === 'noteImg')
                 return 'Enter an image URL...';
             if (this.selectedType === 'noteTodos')
-                return 'Enter comma separated list...';
+                return 'Enter a comma separated string...';
             if (this.selectedType === 'noteVideo')
                 return 'Enter a video URL...';
         },

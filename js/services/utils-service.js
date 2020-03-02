@@ -31,6 +31,17 @@ function makeLorem(length) {
     return randStr;
 }
 
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+console.log(getRandomColor())
 export const utilService = {
     getRandomInt,
     makeLorem,
@@ -83,5 +94,6 @@ export const utilsService = {
     makeLorem,
     makeId,
     convertTimestamp,
-    sortByTxt
+    sortByTxt,
+    getRandomColor
 }

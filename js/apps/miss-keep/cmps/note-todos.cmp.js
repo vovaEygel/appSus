@@ -5,7 +5,7 @@ export default {
         <section 
         class="note-todos-cmp" 
         @mouseover.once="showBtns" 
-        @mouseleave.once="hideBtns">
+        @mouseleave="showBtns">
         <div class="note-content-container">
         <ul class="todo-list">
             <li 
@@ -16,7 +16,7 @@ export default {
             </li>
         </ul>
         </div>        
-        <div v-if="showButtons" class="control-btns">
+        <div v-if="buttonsVisible" class="control-buttons">
             <a class="fa fa-list note-type fa-2x"></a>
             <!-- <a class="button fa fa-paint-brush note-type fa-2x"></a> -->
             <!-- <a class="button fa fa fa-pencil note-type fa-2x"
@@ -31,7 +31,7 @@ export default {
         return {
             editing: false,
             todos: null,
-            showButtons: false
+            buttonsVisible: false
         }
     },
     computed: {
@@ -55,12 +55,8 @@ export default {
             noteService.updateNote(this.id)
         },
         showBtns() {
-            this.showButtons = !this.showButtons;
+            this.buttonsVisible = !this.buttonsVisible;
         },
-        hideBtns() {
-            this.showButtons = !this.showButtons;
-        },
-
     },
     created() {
         this.todos = this.info.todos;

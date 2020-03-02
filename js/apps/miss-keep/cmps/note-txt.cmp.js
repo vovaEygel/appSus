@@ -3,9 +3,11 @@ import { eventBus } from "../../../services/event-bus.service.js";
 
 export default {
     template: `
-    <section class="note-text-cmp">
+    <section class="note-text-cmp"
+         @mouseover.once="showBtns" 
+         @mouseleave="showBtns">
         <p v-if="info">{{info.txt}}</p>
-        <div class="control-buttons">
+        <div v-if="buttonsVisible" class="control-buttons">
             <a class="fa fa-font fa-2x"></a>
             <!-- <a class="button fa fa-paint-brush note-type fa-2x"></a> -->
             <a class="button fa fa fa-pencil note-type fa-2x"
@@ -18,7 +20,8 @@ export default {
     props: ['info', 'type', 'id'],
     data() {
         return {
-            editing: false
+            editing: false,
+            buttonsVisible: false
         }
     },
     methods: {
@@ -28,6 +31,9 @@ export default {
         },
         saveNote() {
             noteService.updateNote(this.id)
+        },
+        showBtns() {
+            this.buttonsVisible = !this.buttonsVisible;
         },
     },
 }

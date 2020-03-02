@@ -2,7 +2,7 @@ export default {
     template: `
     <section class="navbar" :class="{'menu-open' : isMenuOpen}">
       <router-link exact to="/">
-      <img class="logo" src="../../img/AppsusLogo.png"/>
+      <img class="logo" src="../../img/appsuslogo.png"/>      
     </router-link>
     <div class="nav-links">
       <router-link exact to="/"></router-link>

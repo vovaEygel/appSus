@@ -1,5 +1,12 @@
-.about h1,
+.about h1 {
+    margin: 10px auto;
+    display: block;
+    border-radius: 100%;
+    text-align: center;
+}
+
 .about img {
+    width: 80%;
     margin: 10px auto;
     display: block;
     border-radius: 100%;

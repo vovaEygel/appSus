@@ -2,10 +2,12 @@ import { eventBus, EVENT_SHOW_MSG } from '../../../services/event-bus.service.js
 
 export default {
     template: `
-    <section  class="note-video-cmp">
+    <section  class="note-video-cmp"
+         @mouseover.once="showBtns" 
+         @mouseleave="showBtns">
         <div class="note-content-container">
             <iframe v-if="info" width="420" height="315" :src="info.url"></iframe>
-            <div class="control-btns">
+            <div v-if="buttonsVisible" class="control-buttons">
                 <a class="fa fa-film fa-2x"></a>
                 <!-- <a class="button fa fa-paint-brush note-type fa-2x"></a> -->
                 <a class="button fa fa fa-pencil note-type fa-2x"
@@ -21,6 +23,7 @@ export default {
         return {
             editing: false,
             isClicked: false,
+            buttonsVisible: false
         }
     },
     methods: {
@@ -30,6 +33,9 @@ export default {
         },
         saveNote() {
             noteService.updateNote(this.id)
+        },
+        showBtns() {
+            this.buttonsVisible = !this.buttonsVisible;
         },
     },
 }
