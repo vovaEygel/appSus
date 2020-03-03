@@ -9,8 +9,30 @@
 }
 
 .email-app {
-  overflow: hidden;
-  margin-top: 10px;
-  background: url(../../../../img/mail-bg3.jpg) no-repeat center center fixed;
-  background-size: cover;
+  background-color: #F0F3BD;
+}
+
+@media only screen and (max-width: 910px) {
+  .email-app {
+    flex-direction: column;
+  }
+
+  .child-navbar {
+    margin: 0 auto;
+  }
+  
+  .filters {
+    flex-direction: column;
+    align-items: center;
+    background-color: none;
+  }
+
+  .filters>* {
+    margin: 5px;
+  }
+
+  .emails-search {
+    width: 200px;
+  }
+
 }

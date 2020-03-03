@@ -1,6 +1,6 @@
 export default {
   template: `
-    <section class="email-search">
+    <section class="emails-search-container">
       <input type="text" ref="searchfield" class="emails-search" placeholder="Search mail" v-model="emailSearchVal"/>
       <button class="emails-search-btn" @click="emitSearch()">Search</button>
     </section>

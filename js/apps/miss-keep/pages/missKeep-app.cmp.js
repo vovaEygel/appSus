@@ -52,7 +52,6 @@ export default {
         noteService.getNotes()
             .then(notes => {
                 this.notes = notes
-                console.log(this.notes)
             });
 
         eventBus.$on('saved', (updatedNote) => {

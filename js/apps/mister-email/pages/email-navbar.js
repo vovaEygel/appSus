@@ -1,7 +1,6 @@
 import emailCompose from '../cmps/email-compose.cmp.js'
 import emailStatus from '../cmps/email-status.cmp.js'
 import {eventBus} from '../../../services/event-bus.service.js'
-import { emailService } from '../services/email-service.js'
 
 export default {
   template: `

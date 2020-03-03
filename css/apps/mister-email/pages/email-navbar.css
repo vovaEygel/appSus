@@ -1,5 +1,6 @@
 .email-navbar {
   font-family: lato, sans-serif;
+  font-size: 1.3rem;
   width: 25%;
   text-align: center;
   margin-top: 20px;
@@ -9,34 +10,32 @@
   align-self: center;
   background-color: #fff;
   border-radius: 20px;
+  padding: 10px 20px;
   border: none;
-  padding: 5px 10px;
   font-size: 1.2rem;
   margin-bottom: 10px;
   transition: .3s;
 }
 
-.email-navbar .compose:hover {
-  cursor: pointer;
-  padding: 5px 30px;
-  background-color: rgba(153, 174, 245, 0.808);
-  color: rgb(38, 63, 143);
-  font-weight: bold;
-}
-
 .email-navbar .index {
-  width: 100%;
   align-self: center;
   margin: 2.5px;
   padding: 5px 0;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
   transition: .3s;
 }
 
+.email-navbar-container>*:not(:last-child) {
+  transition: .3;
+}
+
+.email-navbar-container>*:not(:last-child):hover {
+  color: #05668D;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .email-navbar .index:hover {
-  background-color: rgba(255, 194, 194, 0.808);
-  color: rgb(206, 65, 65);
+  color: #05668D;
   font-weight: bold;
   cursor: pointer;
 }
@@ -46,10 +45,42 @@
   color: black;
 }
 
-.email-navbar .starred:hover {
-  cursor: pointer;
-}
-
 .email-navbar .starred span:hover {
   color: rgb(204, 167, 4)
+}
+
+@media only screen and (max-width: 910px) {
+  
+  .email-navbar .compose {
+    font-size: 1.1rem;
+    margin-left: 10px;
+    padding: 10px;
+  }
+  
+  .email-navbar {
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    width: 90vw;
+  }
+  
+  .email-navbar-container {
+    flex-wrap: wrap;
+    width: 100vw; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 1rem;
+  }
+  
+  .email-navbar-container>p {
+    margin: 0;
+    width: 100px;
+    height: 40px;
+  }
+
+  .check>* {
+    margin: 0;  
+  }
+
 }

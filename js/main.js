@@ -10,7 +10,7 @@ new Vue({
     router,
     template: `
 			<section class="my-app">
-				<navbar></navbar>
+                <navbar></navbar>
 				<router-view class="main-router-view"></router-view>
 			</section>
   	`,

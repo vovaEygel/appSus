@@ -2,7 +2,6 @@
   width: 300px;
   padding: 10px;
   border: none;
-  border-bottom: 1px solid #000000;
   transition: .1s;
 }
 
@@ -10,13 +9,24 @@
   padding: 10px 15px;
   border: none;
   color: #fff;
-  background-color: #1a73e8;
+  background-color: #05668D;
   border-radius: 3px;
   transition: .3s;
 }
 
 .emails-search-btn:hover {
   cursor: pointer;
-  background-color: #3a8dfa;
+  background-color: rgb(58, 143, 177);
 }
 
+@media only screen and (width: 910px) {
+  .emails-search-container {
+    display: flex;
+    flex-direction:column;
+    background: #000;
+  }
+
+  .emails-search-btn {
+    width: 500px;
+  }
+}

@@ -1,3 +1,8 @@
+.email-details {
+  background-color: #F0F3BD;
+  height: 100vh;
+}
+
 .email-content {
   width: 50%;
   margin: 0 auto;

@@ -9,7 +9,6 @@
 
 .note {
     padding: 10px;
-    /* width: 20rem; */
     margin: 10px;
     border: 2px solid rgb(196, 196, 196);
     border-radius: 5px;
@@ -20,20 +19,17 @@
 }
 
 
-/* .notes-container ul {} */
 
 .notes ul {
     list-style-type: none;
     padding: 0;
     margin: 0.8rem auto;
     width: 90%;
-    /* justify-content: center; */
     column-count: 5;
     column-width: 300px;
 }
 
 .note input {
-    /* display: block; */
     width: 85%;
     max-width: 500px;
     text-align: center;

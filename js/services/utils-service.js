@@ -41,7 +41,6 @@ function getRandomColor() {
     return color;
 }
 
-console.log(getRandomColor())
 export const utilService = {
     getRandomInt,
     makeLorem,

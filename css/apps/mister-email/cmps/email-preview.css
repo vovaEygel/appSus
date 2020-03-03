@@ -1,5 +1,5 @@
 .email-preview {
-  border-bottom: 1px solid rgb(214, 214, 214);
+  border-bottom: 1px solid rgb(134, 134, 134);
   margin-left: auto;
   font-weight: bold;
 }
@@ -39,5 +39,29 @@
 }
 
 .expended {
-  background-color: rgb(243, 243, 243);
+  background-color: #05668D;
+}
+
+@media only screen and (max-width: 910px) {
+  .email-preview-content {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+  }
+
+  .email-preview-content>* {
+    padding: 5px;
+    margin-right: auto;
+  }
+
+  .email-preview-content>:first-child {
+    font-size: 1.4rem;
+
+  }
+  
+  .email-preview-content>:last-child {
+    margin-right: 0;
+    margin-left: auto;
+    font-size: 0.8rem;
+  }
 }

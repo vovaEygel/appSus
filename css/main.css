@@ -3,18 +3,20 @@
 @import './helpers.css';
 @import './about.css';
 @import 'icons/icons.css';
+
+/* email */
+@import './apps/mister-email/pages/email-app.css';
 @import './apps/mister-email/cmps/email-list.css';
 @import './apps/mister-email/cmps/extended-preview.css';
+@import './apps/mister-email/pages/email-details.css';
 @import './apps/mister-email/cmps/email-compose.css';
 @import './apps/mister-email/cmps/email-preview.css';
-@import './apps/mister-email/cmps/email-filter.css';
-@import './apps/mister-email/cmps/email-search.css';
 @import './apps/mister-email/cmps/email-sort.css';
-@import './apps/mister-email/pages/email-app.css';
 @import './apps/mister-email/pages/email-navbar.css';
-@import './apps/mister-email/pages/email-details.css';
-@import './apps/mister-email/cmps/email-cmps-media.css';
-@import './apps/mister-email/pages/email-pages-media.css';
+@import './apps/mister-email/cmps/email-search.css';
+@import './apps/mister-email/cmps/email-filter.css';
+
+/* misskeep */
 @import 'apps/missKeep/cmps/note.css';
 @import 'apps/missKeep/cmps/note-search.css';
 @import 'apps/missKeep/cmps/add-note.css';
@@ -26,6 +28,8 @@
 @import '../css/apps/missKeep/cmps/content.css';
 @import '../css/apps/missKeep/cmps/note-edit.css';
 @import '../css/apps/missKeep/cmps/note-image.css';
+
+
 * {
     box-sizing: border-box;
     font-family: lato, sans-serif;
@@ -34,16 +38,18 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(232, 232, 232);
+    background-color: #F0F3BD;
 }
 
 ul {
     list-style-type: none;
 }
 
+/* main */
 .my-app {
-    background: url(../img/bg1.jpg) no-repeat center center fixed;
+    background: url(../img/homepage-bg.jpg) no-repeat center center fixed;
     background-size: cover;
+    height: 100vh;
     margin: 0;
     padding: 0;
 }
