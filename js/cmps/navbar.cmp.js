@@ -2,7 +2,7 @@ export default {
   template: `
     <section class="navbar flex" :class="{'menu-open' : isMenuOpen}">
       <router-link exact to="/">
-        <img class="logo" src="../../img/appsuslogo.png"/>
+        <img class="logo" src="././img/appsuslogo.png"/>
       </router-link>
       <div class="nav-links flex align-center" :class="{'menu-open': isMenuOpen}">
         <router-link exact to="/" class="mobile-nav-logo">
