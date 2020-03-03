@@ -15,6 +15,7 @@
 @import './apps/mister-email/pages/email-navbar.css';
 @import './apps/mister-email/cmps/email-search.css';
 @import './apps/mister-email/cmps/email-filter.css';
+@import './apps/mister-email/cmps/long-text.css';
 
 /* misskeep */
 @import 'apps/missKeep/cmps/note.css';
