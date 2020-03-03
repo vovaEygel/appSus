@@ -1,4 +1,5 @@
 import expendedPreview from './expended-preview.cmp.js'
+import longText from './long-text.cmp.js'
 import { emailService } from '../services/email-service.js'
 
 export default {
@@ -10,6 +11,7 @@ export default {
             {{email.from}}
           </li>
           <li>{{email.subject}}</li>
+          <li><long-text :txt="email.body"></long-text></li>
           <li>{{email.sentAt}}</li>
         </ul>
         <expended-preview v-if="email.isExpended" :email="email"></expended-preview>
@@ -17,7 +19,8 @@ export default {
   `,
   
   components: {
-    expendedPreview
+    expendedPreview,
+    longText
   },
 
   props: ['email'],
